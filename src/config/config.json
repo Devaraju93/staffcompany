@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Staff Matrix",
+    "base_url": "https://staffmatrix.in",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/logo.png",
+    "logo": "/images/logo.png",
+    "logo_width": "300",
+    "logo_height": "128",
+    "logo_text": "Staff Matrix"
+  },
+
+  "settings": {
+    "pagination": 4,
+    "summary_length": 200,
+    "blog_folder": "blog"
+  },
+
+  "nav_button": {
+    "enable": true,
+    "label": "Contact Us",
+    "link": "/contact"
+  },
+
+  "params": {
+    "contact_form_action": "",
+    "tag_manager_id": "",
+    "footer_content": "Staff Matrix is a staffing enterprise that provides manpower to various industries. Staff Matrix has achieved significant success in establishing a global network.",
+    "copyright": "Designed and Developed By [Staffmatrix © 2024](https://staffmatrix.in)"
+  },
+
+  "metadata": {
+    "meta_author": "Staff Matrix",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "HR solutions company"
+  }
+}

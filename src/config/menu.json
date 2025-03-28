@@ -1,0 +1,65 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "About Us",
+      "url": "/about-us"
+    },
+    {
+      "name": "Services",
+      "url": "/services"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Company",
+      "menu": [
+        {
+          "text": "Services",
+          "url": "/services"
+        },
+        {
+          "text": "About Us",
+          "url": "/about-us"
+        }
+      ]
+    },
+    {
+      "name": "Services",
+      "menu": [
+        {
+          "text": "General Staffing",
+          "url": "/services#general-staffing"
+        },
+        {
+          "text": "Industrial Staffing",
+          "url": "/services#industrial-staffing"
+        },
+        {
+          "text": "IT Staffing",
+          "url": "/services#it-staffing"
+        },
+        {
+          "text": "Facility Management",
+          "url": "/services#facility-management"
+        }
+      ]
+    },
+    {
+      "name": "Support",
+      "menu": [
+        {
+          "text": "Contact Us",
+          "url": "/contact"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import Base from "@/layouts/Base.astro";
+import Cta from "@/layouts/components/Cta.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getEntryBySlug } from "astro:content";
+
+const servicesContent = await getEntryBySlug("services", "index");
+const { banner, services, call_to_action } = servicesContent.data;
+---
+
+<Base>
+  <!-- banner -->
+  <section class="section pb-[50px]">
+    <div class="container">
+      <div class="row text-center">
+        <div class="mx-auto lg:col-10">
+          <h1 class="font-primary font-bold">{banner?.title}</h1>
+          {
+            banner?.content && (
+              <p class="mt-4" set:html={markdownify(banner.content)} />
+            )
+          }
+
+          {
+            banner?.button?.enable && (
+              <a class="btn btn-primary mt-4" href={banner.button.link}>
+                {banner.button.label}
+              </a>
+            )
+          }
+
+          {
+            banner?.image && (
+              <Image
+                class="mx-auto mt-12"
+                src={banner?.image}
+                width={750}
+                height={390}
+                alt="banner image"
+              />
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {
+    services!.map((service: any, index: number) => {
+      const isOdd = index % 2 > 0;
+      return (
+        <section
+          id={service.slug}
+          class={`section ${!isOdd && "bg-theme-light"}`}
+        >
+          <div class="container">
+            <div class="items-center gap-8 md:grid md:grid-cols-2">
+              <div class={`service-carousel ${!isOdd && "md:order-2"}`}>
+                {service.image && (
+                  <Image
+                    class="mx-auto"
+                    src={service!.image}
+                    width={438}
+                    height={328}
+                    alt=""
+                  />
+                )}{" "}
+              </div>
+
+              {/* Content */}
+              <div
+                class={`service-content mt-5 md:mt-0 ${!isOdd && "md:order-1"}`}
+              >
+                <h2 class="font-bold leading-[40px]">{service?.title}</h2>
+                <p class="mt-4 mb-2">{service?.content}</p>
+                {service?.button?.enable && (
+                  <a
+                    href={service?.button.link}
+                    class="cta-link inline-flex items-center text-primary"
+                  >
+                    {service?.button.label}
+                    <img
+                      class="ml-1"
+                      src="/images/arrow-right.svg"
+                      width={18}
+                      height={14}
+                      alt="arrow"
+                    />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    })
+  }
+
+  <!-- Call to Action -->
+  <Cta cta={call_to_action} />
+</Base>
